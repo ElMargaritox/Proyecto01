@@ -19,30 +19,7 @@
         $this->views->getView($this, "home", $data);
      }
 
-     public function insertar(){
-         $data = $this->model->setPlugin("Prueba", "Prueba2", "Prueba3", "Prueba4");
-         print_r($data);
-     }
 
-     public function verplugin($name){
-         $data = $this->model->getPlugin($name);
-         print_r($data);
-     }
-
-     public function actualizar($id){
-        $data = $this->model->updatePlugin($id, "Margarita", "margarita2", "margarita3", "margarita4");
-        print_r($data);
-     }
-
-     public function plugins(){
-        $data = $this->model->GetPlugins();
-        dep($data);
-     }
-
-     public function removeUser($id){
-         $data = $this->model->delUser($id);
-         print_r($data);
-     }
  }
 
 ?>

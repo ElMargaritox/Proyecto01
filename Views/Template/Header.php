@@ -6,7 +6,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
-    <meta http-equiv="refresh" content="1">
+    <meta http-equiv="refresh" content="10">
     <title>Inicio</title>    
 
 <link href="<?php echo base_url();?>Assets/css/bootstrap.min.css" rel="stylesheet"></link>
@@ -65,19 +65,19 @@
     </style>
 
     
-    <!-- Custom styles for this template -->
+    
     <link href="<?php echo base_url();?>/Assets/css/cover.css" rel="stylesheet">
   </head>
   <body class="d-flex h-100 text-center text-white bg-dark">
-    
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
 <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
   <header class="float-lg-start">
     <div>
       <h3 class="float-md-start mb-0">EnvyHosting</h3>
       <nav class="nav nav-masthead justify-content-center float-md-end">
         <a class="nav-link fw-bold py-1 px-0 <?php echo $_SESSION['pageSelected'] == "Home"? "active" : ""?>" aria-current="page" href="<?php echo base_url()?>/home#">Home</a>
-        <a class="nav-link fw-bold py-1 px-0"<?php echo $_SESSION['pageSelected'] == "Home"? "active" : ""?> href="<?php echo base_url()?>/plugins">Plugins</a>
-        <a class="nav-link fw-bold py-1 px-0"<?php echo $_SESSION['pageSelected'] == "Home"? "active" : ""?> href="<?php echo base_url()?>/contacto">Contacto</a>
+        <a class="nav-link fw-bold py-1 px-0 <?php echo $_SESSION['pageSelected'] == "Plugins"? "active" : ""?>" href="<?php echo base_url()?>/plugins">Plugins</a>
+        <a class="nav-link fw-bold py-1 px-0 <?php echo $_SESSION['pageSelected'] == "Contacto"? "active" : ""?>" href="<?php echo base_url()?>/contacto">Contacto</a>
       </nav>
     </div>
   </header>
