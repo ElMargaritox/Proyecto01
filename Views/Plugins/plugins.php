@@ -9,13 +9,12 @@
 
 <img src="<?php echo base_url();?>/Assets/img/logito_00000_00000.png" class="img-fluid" alt="EnvyHosting">
 
-  <p class="lead">Lista de plugins</p>
+  <p class="lead text-center">Lista de plugins</p>
 
-  <div class="album py-10">
-    <div class="container">
+    <div class="container-md">
 
-      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-
+      <!--<div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">!-->
+      <div class="row row-cols-sm-3 rounded-sm">
       
       <?php
        foreach ($data["plugins_content"] as $key => $value) {
@@ -27,53 +26,35 @@
         $description = $value["Description"];
         $link = $value["Link"];
 
-        echo '<div class="col w-100">
-        <div class="card shadow-sm">
-        <div id="carousel" class="carousel slide" width="100%" height="225" data-ride="carousel">
-  <div class="carousel-inner">
-    <a href="', base_url(), '/plugins/plugin/', $id,'"><h2 style="color:black">', $name,'<h2></a>
-  <div class="carousel-item active">
-    <a href="', base_url(), '/plugins/plugin/', $id,'"><img class="w-1"  height="85" src="', $image,'" alt=""></a>
-  </div>
-  <div class="carousel-item">
-  <a href="', base_url(), '/plugins/plugin/', $id,'"><img class="w-1"  height="85" src="', $image,'" alt=""></a>
-  </div>
-  <div class="carousel-item">
-  <div class="embed-responsive embed-responsive-16by9">
-  <iframe class="embed-responsive-item" src="', $link,'" allowfullscreen></iframe>
-</div>
-  </div>
-  </div>
-  <a class="carousel-control-prev" href="#carousel" role="button" data-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="sr-only" style="color:black"><-</span>
-  </a>
-  <a class="carousel-control-next" href="#carousel" role="button" data-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="sr-only" style="color:black">-></span>
-  </a>
-  </div>
-          <div class="card-body">
-            <p class="card-text" style="color:black">', $description, '.</p>
-            <div class="d-flex justify-content-between align-items-center">
-              <div class="btn-group">
-                <a  href="', base_url(), '/plugins/plugin/', $id,'"><button type="button" class="btn btn-sm btn-outline-secondary">Documentacion</button></a>
-                <a href="', base_url(), '/plugins/plugin/', $id,'"><button type="button" class="btn btn-sm btn-outline-secondary" disabled>Descargar</button></a>
-              </div>
-              <small class="text-muted mt-auto">Precio: ', $price,'$</small>
-            </div>
-          </div>
-        </div>
-      </div>';
+
+
+        echo '
+      <div class="col py-1 border border-end rounded-top">
         
+        <div class="card h-100 bg-light rounded-sm">
+          <div class="card-body text-center">
+        
+            <div class="card-title">
+              <a href="', base_url(), '/plugins/plugin/', $id,'"><img class="img-thumbnail mb-2 mx-4" style="width: 85px; height: 85px;" src="', $image,'"></img></a>
+              <a class="text-center py-2" href="', base_url(), '/plugins/plugin/', $id,'">', $name,'</a>
+            
+            </div>
+              <p class="card-text" style="color:black">', $description,'</p>
 
+                
+          </div>
+            <div class="card-footer">
+            <small class="text-muted">Precio: <b>', $price,'$</b></small>
+            <a href="', base_url(), '/plugins/plugin/', $id,'"><button type="button" class="btn btn-outline-primary justify-content-center">Mas Informacion</button></a>
+            </div>
+        </div>
+
+      </div>
+        
+';
         }
-
-
-     
       ?>
         
-  </div>
 </div>
 
 

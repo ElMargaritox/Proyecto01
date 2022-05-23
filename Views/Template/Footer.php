@@ -1,9 +1,7 @@
-<footer class="mt-auto text-white-50">
+<footer class="mt-auto text-white-50 col-md">
     <p><a href="https://clientes.envynode.com" class="text-white">EnvyHosting</a> by <a href="https://github.com/ElMargaritox" class="text-white">ElMargaritox</a>.</p>
   </footer>
 </div>
-
-
     
   </body>
 </html>

@@ -17,7 +17,6 @@
          $_SESSION["pageSelected"] = "Plugins";
          $data["plugins_content"] = $this->model->GetPlugins();
         $this->views->getView($this, "plugins", $data);
-
      }
 
      public function plugin($id){
