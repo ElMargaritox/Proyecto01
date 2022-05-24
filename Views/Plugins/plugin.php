@@ -10,6 +10,7 @@
 <img src="<?php echo base_url();?>/Assets/img/logito_00000_00000.png" class="img-fluid" alt="EnvyHosting">
 
 
+
      <?php
 
 
@@ -33,9 +34,13 @@
               </div>
               <p class="text-center mt-auto">', $data["Description"],'</p>
             </div>
-            <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">.2</div>
-            <div class="tab-pane fade" id="nav-permisos" role="tabpanel" aria-labelledby="nav-permisos-tab">.5</div>
-            <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">.3</div>
+            <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+            ', file_get_contents(getConfig($data["id"]), false),'
+            </div>
+            <div class="tab-pane fade" id="nav-permisos" role="tabpanel" aria-labelledby="nav-permisos-tab">', 
+            file_get_contents(getPermissions($data["id"]), false),'</div>
+            <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">', 
+            '</div>
           </div>
           ';
         }else{
@@ -43,7 +48,11 @@
             echo '<a href="', base_url(),'/plugins"><p>Has click aca</a>. Para volver a lista de plugins</p>';
         }
 
+        function downloadFunction(){
 
+            # Leer el archivo y sacarlo al navegador
+          readfile(download($data["id"]));
+        }
 
         
      ?>

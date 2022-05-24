@@ -25,6 +25,7 @@
         $this->views->getView($this, "plugin", $data);
      }
 
+    
 
  }
 

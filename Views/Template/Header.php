@@ -6,7 +6,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
-    <meta http-equiv="refresh" content="1">
+    <meta http-equiv="refresh" content="10">
     <title>Inicio</title>    
 
 <link href="<?php echo base_url();?>Assets/css/bootstrap.min.css" rel="stylesheet"></link>
@@ -84,20 +84,35 @@
         <?php 
           if(isset($_SESSION["Logged"])){
 
+            if($_SESSION["Logged"]["adminMode"] == 1){
+              echo '
+              <li class="nav-item dropdown px-1">
+              <a class="nav-link fw-bold py-1 px-0 dropdown-toggle id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false"', $_SESSION['pageSelected'] == "Account"? "active" : "", '" href="#"">Cuenta</a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <li><a class="dropdown-item" href="', base_url(),'account/admin/plugins"">Plugins</a></li>
+              <li><a class="dropdown-item" href="', base_url(),'account/admin/licences"">Licencias</a></li>
+              <li><a class="dropdown-item" href="', base_url(),'account/logout">Cerrar Sesion</a></li>
+            </ul>
+          </li>
+  
+             
+              ';
+            }else{
+              echo '
+
+              <li class="nav-item dropdown px-1">
+              <a class="nav-link fw-bold py-1 px-0 dropdown-toggle id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false"', $_SESSION['pageSelected'] == "Account"? "active" : "", '" href="#"">Cuenta</a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+              <li><a class="dropdown-item" href="', base_url(),'account/myplugins"">Mis Plugins</a></li>
+              <li><a class="dropdown-item" href="', base_url(),'account/logout">Cerrar Sesion</a></li>
+            </ul>
+          </li>
+  
+             
+              ';
+            }
 
 
-            echo '
-
-            <li class="nav-item dropdown px-1">
-            <a class="nav-link fw-bold py-1 px-0 dropdown-toggle id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false"', $_SESSION['pageSelected'] == "Account"? "active" : "", '" href="#"">Cuenta</a>
-          <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-            <li><a class="dropdown-item" href="', base_url(),'account/myplugins"">Mis Plugins</a></li>
-            <li><a class="dropdown-item" href="', base_url(),'account/logout">Cerrar Sesion</a></li>
-          </ul>
-        </li>
-
-           
-            ';
 
             // A PEDASOS EL NIÑO MILA
 

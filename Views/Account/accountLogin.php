@@ -10,10 +10,14 @@
 
 
 <form action="<?php  echo base_url()?>account" method="GET">
+
+
+     
       <h1 class="h3 mb-3 font-weight-normal">Iniciar Sesion</h1>
       <label for="inputLicence" class="sr-only">Licencia</label>
-
+      <?php echo isset($_GET["error"]) ? "<br /><b style='color:red'>Los datos ingresados son incorrectos</b>" : ""?>
       <input type="text"  name="licence" id="licence" class="form-control" placeholder="Ingresa tu licencia" required autofocus>
+
 
       <label for="inputPassword"  class="sr-only">Contraseña</label>
 

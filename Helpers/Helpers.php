@@ -13,6 +13,19 @@ function load($ruta =""){
 
 
 
+function getConfig($file = ""){
+    return base_url()."Assets/pluginsData/config/".$file.".txt";
+}
+
+function getPermissions($file = ""){
+    return base_url()."Assets/pluginsData/perm/".$file.".txt";
+}
+
+function download($plugin = ""){
+    return base_url()."Assets/pluginsData/dll/".$plugin.".dll";
+}
+
+
 // Easy Read Array
 function dep($data){
     $format = print_r('<pre>');
