@@ -78,11 +78,37 @@ class Account extends Controllers{
             if($_SESSION["Logged"]["adminMode"] == 1){
 
                 switch ($params) {
-                    case 'licences':
+                    case 'licenses':
                         
-                        $this->views->getView($this, "Admin/licenceManager", $data);
+                        $this->views->getView($this, "Admin/licenseManager", $data);
                         break;
                     case 'plugins':
+                       
+                        if($_POST){
+                            if(check($_FILES['pluginImage']['type'], $_FILES['pluginImage']['size'])){
+                                $temp = explode(".", $_FILES["pluginImage"]["name"]);
+                                $info = $this->model->setPlugin($_POST["pluginName"], $_POST["pluginDescription"], " ", $_POST["pluginPrice"]);
+                                $newfilename = $info . '.' . end($temp);
+                                move_uploaded_file($_FILES['pluginImage']['tmp_name'], GetResositoryImages() . $newfilename);
+                                $this->model->setImage($info, $_POST["pluginName"], $_POST["pluginDescription"], GetRepositoryImagesLink($newfilename), $_POST["pluginPrice"]);
+                                
+                                echo "SE SUBIO EL ARCHIVO";
+                            }else{
+                                echo '<b>No se puede subir la imagen.</b>';
+                            }
+                            
+                                /*
+                                if(!empty($_GET["pluginName"]) & !empty($_GET["pluginPrice"] & !empty($_GET["pluginDescription"]))){
+                                    $_FILES['pluginImage']['name'];
+                                    //$this->model->removePlugin($_GET["id"]);  sleep(2);
+                                    
+                                    //header('Location: '. base_url().'account/admin/plugins'); 
+                                }else{
+                                    echo "ENTRO ACA";
+                                } 
+                                */
+                        }
+
                         if($_GET){
 
                             if(!empty($_GET["action"])){
@@ -97,32 +123,37 @@ class Account extends Controllers{
                                             header('Location: '. base_url().'account/admin/plugins'); 
                                         } 
                                         break;
-                                    case 'add':
-                                        if(!empty($_GET["pluginName"]) & !empty($_GET["pluginPrice"])){
-                                            echo "SE HA AGREGADO CORRECTAMENTE".$_GET["pluginName"];
-                                            //$this->model->removePlugin($_GET["id"]);  sleep(2);
-                                            
-                                            //header('Location: '. base_url().'account/admin/plugins'); 
-                                        }else{
-                                            header('Location: '. base_url().'account/admin/plugins'); 
-                                        } 
-                                        break;
-                                    
                                     default:
                                     header('Location: '. base_url().'account/admin/plugins');
                                         break;
                                 }
                             }
 
-                        }else{
-                            echo "NO";
                         }
                                    //     $this->model->removePlugin($_GET["id"]);
                                    //     header('Location: '. base_url().'account/admin/plugins');
 
+                        $data["plugins"] = $this->model->GetPlugins(0, 2);
+
+                        if(!$_GET){
+                            header('Location: '. base_url().'account/admin/plugins?page=1');
+                        }
 
 
-                        $data["plugins"] = $this->model->GetPlugins();
+                        if($_GET['page'] <= 0){
+                            header('Location: '. base_url().'account/admin/plugins?page=1');
+                        }
+
+                        $iniciar = ($_GET['page']-1)*2;
+                        
+
+
+                        $data["plugins"] = $this->model->GetPlugins($iniciar, 2);
+
+                        if($data["plugins"] == null){
+                            header('Location: '. base_url().'account/admin/plugins?page=1');
+                        }
+
                         $this->views->getView($this, "Admin/pluginsManager", $data);
                             break;    
                     default:

@@ -8,9 +8,10 @@
         </button>
       </div>
       <div class="modal-body" style="color:black">
-        <form action="" method="GET">
+        <form enctype="multipart/form-data" action="<?php  echo base_url()?>account/admin/plugins" method="POST">
 
-        <div class="form-group">
+        <input type='hidden' name='action' value='add' />
+        <div class="form-group">      
         <label for="pluginName">Nombre</label>
           <input type="text" name="pluginName" id="pluginName" class="form-control mt-2" placeholder="Ejemplo: EnvyEssentials" required>
         </div>
@@ -31,8 +32,8 @@
         <textarea class="form-control" name="pluginDescription" id="pluginDescripcion" rows="3" required></textarea>
         </div>
         <div class="form-group">
-        <label for="pluginImage">Imagen</label>
-        <input type="file" class="form-control-file" name="pluginImage" id="pluginImage" required> <br/>
+        <label for="pluginImage2">Imagen</label>
+        <input type="file" class="form-control-file" name="pluginImage" required> <br/>
         <label for="pluginDLL">Plugin</label>
         <input type="file" class="form-control-file" name="pluginDLL" id="pluginDLL">
         </div>

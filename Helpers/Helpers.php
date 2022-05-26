@@ -6,12 +6,34 @@ function base_url(){
     return BASE_URL;
 }
 
+function getUri($page = ""){
+    return base_url().$page;
+}
+
 function load($ruta =""){
     $view_header = $ruta;
         require_once($view_header);
 }
 
 
+function GetResositoryImages(){
+    return 'Assets/pluginsData/img/';
+}
+
+function GetRepositoryImagesLink($file){
+    return base_url().'Assets/pluginsData/img/'.$file;
+}
+
+function check($jar, $size){
+
+    if($jar == "image/jpeg" || $jar == "image/png" || $jar == "image/jpg"){
+    
+        if($size < 100000){
+            return true;
+        } 
+    }
+    return false;
+}
 
 function getConfig($file = ""){
     return base_url()."Assets/pluginsData/config/".$file.".txt";

@@ -15,8 +15,24 @@
          $data["page_content"] = "Mucho Texto";
 
          $_SESSION["pageSelected"] = "Plugins";
-         $data["plugins_content"] = $this->model->GetPlugins();
-        $this->views->getView($this, "plugins", $data);
+
+         if(empty($_COOKIE["cookieNombre"])){
+            
+
+            if(empty($_COOKIE["cookiePrecio"])){
+               $data["plugins_content"] = $this->model->GetPlugins();
+            }else{
+               $data["plugins_content"] = $this->model->GetPluginsWithPrice($_COOKIE["cookiePrecio"]);
+            }
+         }else{
+            if($_COOKIE["cookieNombre"] != ""){
+               $data["plugins_content"] = $this->model->GetPluginsWithName($_COOKIE["cookieNombre"]);
+            }
+         }
+
+         $this->views->getView($this, "plugins", $data);
+        
+
      }
 
      public function plugin($id){

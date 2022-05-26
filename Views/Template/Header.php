@@ -6,7 +6,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
-    <meta http-equiv="refresh" content="10">
+    <meta http-equiv="refresh" content="100">
     <title>Inicio</title>    
 
 <link href="<?php echo base_url();?>Assets/css/bootstrap.min.css" rel="stylesheet"></link>
@@ -69,7 +69,7 @@
     
     <link href="<?php echo base_url();?>/Assets/css/cover.css" rel="stylesheet">
   </head>
-  <body class=" h-100 text-center text-white bg-dark">
+  <body class=" h-100 text-center text-white bg-dark" style="">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
 <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column" style="margin-top: 10px">
   <header class="float-lg-start">
@@ -90,7 +90,7 @@
               <a class="nav-link fw-bold py-1 px-0 dropdown-toggle id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false"', $_SESSION['pageSelected'] == "Account"? "active" : "", '" href="#"">Cuenta</a>
             <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
             <li><a class="dropdown-item" href="', base_url(),'account/admin/plugins"">Plugins</a></li>
-              <li><a class="dropdown-item" href="', base_url(),'account/admin/licences"">Licencias</a></li>
+              <li><a class="dropdown-item" href="', base_url(),'account/admin/licenses"">Licencias</a></li>
               <li><a class="dropdown-item" href="', base_url(),'account/logout">Cerrar Sesion</a></li>
             </ul>
           </li>
@@ -111,13 +111,6 @@
              
               ';
             }
-
-
-
-            // A PEDASOS EL NIÑO MILA
-
-
-
           }else{
             echo '<a class="nav-link fw-bold py-1 px-0', $_SESSION['pageSelected'] == "Account"? " active" : "", '" href="', base_url(), 'account/login">Iniciar Sesion</a>';
           }

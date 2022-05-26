@@ -11,5 +11,10 @@ CONST DB_CHARSET = "charset=utf8";
 
 
 session_start();
+
+// COOKIES
+setcookie("cookieNombre", "", time() + 3600, "/", BASE_URL, 1);
+setcookie("cookiePrecio", " ", time() + 3600, "/", BASE_URL, 1);
+
 $_SESSION["pageSelected"] = "";
 ?>

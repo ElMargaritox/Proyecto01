@@ -64,6 +64,25 @@
 </table>
 </div>
 
+<?php 
+
+
+
+echo '<nav aria-label="Page navigation example">
+<ul class="pagination justify-content-end">
+  <li class="page-item">
+    <a class="page-link" href="', base_url().'account/admin/plugins?page='.$_GET["page"] -= 1,'" tabindex="-1"><-</a>
+  </li>
+  <li class="page-item"><a class="page-link" href="', base_url().'account/admin/plugins?page=1','">1</a></li>
+  <li class="page-item"><a class="page-link" href="', base_url().'account/admin/plugins?page=2','">2</a></li>
+  <li class="page-item"><a class="page-link" href="', base_url().'account/admin/plugins?page=3','">3</a></li>
+  <li class="page-item">
+  <a class="page-link" href="', base_url().'account/admin/plugins?page='.$_GET["page"] += 2,'" tabindex="1">-></a>
+  </li>
+</ul>
+</nav>';
+?>
+
 
 </div>
 

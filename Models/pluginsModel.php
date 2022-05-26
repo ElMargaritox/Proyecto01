@@ -35,6 +35,18 @@ class pluginsModel extends Mysql{
         return $request;
     }
 
+    public function GetPluginsWithName($name){
+        $sql = "SELECT * FROM pluginsdata WHERE Name LIKE '%$name%';";
+        $request = $this->select_all($sql);
+        return $request;
+    }
+
+    public function GetPluginsWithPrice($value){
+        $sql = "SELECT * FROM pluginsdata WHERE Price <='$value';";
+        $request = $this->select_all($sql);
+        return $request;
+    }
+
     /*
     public function delUser($id){
         $sql = "DELETE FROM pluginsdata WHERE Id = '$id'";
