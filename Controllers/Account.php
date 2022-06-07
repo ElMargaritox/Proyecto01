@@ -91,10 +91,28 @@ class Account extends Controllers{
                                 $newfilename = $info . '.' . end($temp);
                                 move_uploaded_file($_FILES['pluginImage']['tmp_name'], GetResositoryImages() . $newfilename);
                                 $this->model->setImage($info, $_POST["pluginName"], $_POST["pluginDescription"], GetRepositoryImagesLink($newfilename), $_POST["pluginPrice"]);
-                                
+
+                                // WRITE FILE TXT AND SAVE.
+
+                                $fp = fopen(GetRespositoryConfigLink($info).'.txt',"wb");
+                                if( $fp == false ){
+                                 // NADA
+                                }else{
+                                  fwrite($fp, $_POST["pluginConfig"]);
+                                  fclose($fp);
+                                }
+
+                                $fp2 = fopen(GetRepositoryPermsLink($info).'.txt',"wb");
+                                if( $fp2 == false ){
+                                 // NADA
+                                }else{
+                                  fwrite($fp, $_POST["pluginConfig"]);
+                                  fclose($fp);
+                                }
+
                                 echo "SE SUBIO EL ARCHIVO";
                             }else{
-                                echo '<b>No se puede subir la imagen.</b>';
+                                echo '<b>No se pudo subir el plugin.</b>';
                             }
                             
                                 /*

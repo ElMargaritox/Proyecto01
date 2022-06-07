@@ -20,6 +20,14 @@ function GetResositoryImages(){
     return 'Assets/pluginsData/img/';
 }
 
+function GetRespositoryConfigLink($file){
+    return 'Assets/pluginsData/config/'.$file;
+}
+
+function GetRepositoryPermsLink($file){
+    return 'Assets/pluginsData/perm/'.$file;
+}
+
 function GetRepositoryImagesLink($file){
     return base_url().'Assets/pluginsData/img/'.$file;
 }
